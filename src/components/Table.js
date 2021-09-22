@@ -3,7 +3,7 @@ import React from "react";
 const Table = ({ data }) => {
   return (
     <div className="col-xl-6 mx-auto mt-2">
-      <div className="  shadow rounded-5 bg-gradient-gray p-5 ">
+      <div className="shadow rounded-5 bg-gradient-gray p-5 table-responsive">
         <table className="table">
           <thead>
             <tr>
