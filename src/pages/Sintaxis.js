@@ -33,33 +33,31 @@ const Sintaxis = () => {
   return (
     <div className="mx-3">
       <div className="row ">
-        <div className="col-xl-6 mx-auto ">
-          <div className=" shadow rounded-5 bg-gradient-gray p-5 ">
-            <h1>Simulador de análisis sintáctico </h1>
-            <div className="mb-2">
-              <Input
-                attr={{ name: "archivo", type: "file", accept: ".js" }}
-                label="Seleccione un archivo js"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="mb-2">
-              <TextArea
-                attr={{
-                  name: "contenido",
-                  rows: 10,
-                  placeholder: "Ingrese el programa aquí",
-                  value: contenido || "",
-                }}
-                label="Codigo fuente en javaScript"
-                onChange={handleChangeArea}
-              />
-            </div>
-            <div className="m-2">
-              <button className="btn btn-primary" onClick={handleCalculate}>
-                Analizar programa
-              </button>
-            </div>
+        <div className=" col-xl-6 mx-auto shadow rounded-5 bg-gradient-gray p-5 mb-2">
+          <h1>Simulador de análisis sintáctico </h1>
+          <div className="mb-2">
+            <Input
+              attr={{ name: "archivo", type: "file", accept: ".js" }}
+              label="Seleccione un archivo js"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-2">
+            <TextArea
+              attr={{
+                name: "contenido",
+                rows: 10,
+                placeholder: "Ingrese el programa aquí",
+                value: contenido || "",
+              }}
+              label="Codigo fuente en javaScript"
+              onChange={handleChangeArea}
+            />
+          </div>
+          <div className="mt-2">
+            <button className="btn btn-primary" onClick={handleCalculate}>
+              Analizar programa
+            </button>
           </div>
         </div>
 

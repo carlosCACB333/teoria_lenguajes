@@ -6,7 +6,9 @@ const TextArea = ({ attr, label, error, onChange, help }) => {
       <label className="form-label">{label || attr.name}</label>
       <textarea
         {...attr}
-        className={error ? " form-control is-invalid" : "form-control"}
+        className={
+          error ? "scroll form-control is-invalid" : "scroll form-control"
+        }
         onChange={onChange}
       ></textarea>
 

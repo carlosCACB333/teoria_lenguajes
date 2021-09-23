@@ -2,8 +2,11 @@ import React from "react";
 
 const Table = ({ data }) => {
   return (
-    <div className="col-xl-6 mx-auto mt-2">
-      <div className="shadow rounded-5 bg-gradient-gray p-5 table-responsive">
+    <div className="col-xl-6 mx-auto mb-2">
+      <div
+        className="shadow rounded-5 bg-gradient-gray p-5 table-responsive scroll"
+        style={{ maxHeight: "85vh" }}
+      >
         <table className="table">
           <thead>
             <tr>

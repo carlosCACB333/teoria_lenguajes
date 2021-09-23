@@ -11,18 +11,11 @@ const lexemas = [
   { lexema: "else", token: "reservada", codigo: "100" },
   { lexema: "for", token: "reservada", codigo: "100" },
   { lexema: "while", token: "reservada", codigo: "100" },
-  { lexema: "parseFloat", token: "reservada", codigo: "100" },
   { lexema: "break", token: "reservada", codigo: "100" },
-  { lexema: "textContent", token: "reservada", codigo: "100" },
-  { lexema: "innerHTML", token: "reservada", codigo: "100" },
-  { lexema: "document", token: "reservada", codigo: "100" },
-  { lexema: "getElementById", token: "reservada", codigo: "100" },
   { lexema: "return", token: "reservada", codigo: "100" },
   { lexema: "continue", token: "reservada", codigo: "100" },
   { lexema: "try", token: "reservada", codigo: "100" },
   { lexema: "catch", token: "reservada", codigo: "100" },
-  { lexema: "console", token: "reservada", codigo: "100" },
-  { lexema: "log", token: "reservada", codigo: "100" },
   { lexema: "default", token: "reservada", codigo: "100" },
   { lexema: "delete", token: "reservada", codigo: "100" },
   { lexema: "do", token: "reservada", codigo: "100" },
@@ -35,24 +28,43 @@ const lexemas = [
   { lexema: "typeof", token: "reservada", codigo: "100" },
   { lexema: "void", token: "reservada", codigo: "100" },
   { lexema: "with", token: "reservada", codigo: "100" },
+  { lexema: "class", token: "reservada", codigo: "100" },
+  { lexema: "boolean", token: "reservada", codigo: "100" },
+  { lexema: "char", token: "reservada", codigo: "100" },
+  { lexema: "byte", token: "reservada", codigo: "100" },
+  { lexema: "debugger", token: "reservada", codigo: "100" },
+  { lexema: "double", token: "reservada", codigo: "100" },
+  { lexema: "native", token: "reservada", codigo: "100" },
+  { lexema: "null", token: "reservada", codigo: "100" },
+  { lexema: "protected", token: "reservada", codigo: "100" },
+  { lexema: "get", token: "reservada", codigo: "100" },
+  { lexema: "yield", token: "reservada", codigo: "100" },
+  { lexema: "super", token: "reservada", codigo: "100" },
+  { lexema: "float", token: "reservada", codigo: "100" },
 
-  { lexema: "(", token: "simbolo", codigo: "1" },
-  { lexema: ")", token: "simbolo", codigo: "2" },
-  { lexema: "[", token: "simbolo", codigo: "1" },
-  { lexema: "]", token: "simbolo", codigo: "2" },
-  { lexema: "{", token: "simbolo", codigo: "6" },
-  { lexema: "=", token: "simbolo", codigo: "8" },
-  { lexema: ";", token: "simbolo", codigo: "5" },
-  { lexema: ",", token: "simbolo", codigo: "5" },
-  { lexema: ":", token: "simbolo", codigo: "4" },
-  { lexema: "}", token: "simbolo", codigo: "7" },
+  { lexema: "(", token: "parentesis_apertura", codigo: "1" },
+  { lexema: ")", token: "parantesis_cierre", codigo: "2" },
   { lexema: ".", token: "simbolo", codigo: "3" },
+  { lexema: ":", token: "simbolo", codigo: "4" },
+  { lexema: ";", token: "simbolo", codigo: "5" },
+  { lexema: "{", token: "llaves_apertura", codigo: "6" },
+  { lexema: "}", token: "llaves_cierre", codigo: "7" },
+  { lexema: "=", token: "simbolo", codigo: "8" },
+  { lexema: "[", token: "corchete_aperture", codigo: "9" },
+  { lexema: "]", token: "corchete_cierre", codigo: "10" },
+  { lexema: ",", token: "simbolo", codigo: "11" },
+  { lexema: "<", token: "simbolo", codigo: "12" },
+  { lexema: ">", token: "simbolo", codigo: "13" },
 
   { lexema: "+", token: "operador", codigo: "103" },
   { lexema: "-", token: "operador", codigo: "103" },
   { lexema: "*", token: "operador", codigo: "103" },
   { lexema: "/", token: "operador", codigo: "103" },
   { lexema: "%", token: "operador", codigo: "103" },
+
+  { lexema: "&&", token: "operador_logico", codigo: "104" },
+  { lexema: "||", token: "operador_logico", codigo: "104" },
+  { lexema: "!", token: "operador_logico", codigo: "104" },
 ];
 
 let lexemas_encontrados = [];
@@ -94,6 +106,7 @@ export const sintaxis = (contenido) => {
 
 const buscar = (cadena) => {
   cadena = cadena.replace("\\s", "");
+  cadena = cadena.trim();
   let existe = false;
   lexemas.forEach((value) => {
     if (value.lexema === cadena) {
