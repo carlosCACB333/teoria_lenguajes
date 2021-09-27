@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import Input from "../components/formControl/Input";
 import TextArea from "../components/formControl/TextArea";
+import TablaClases from "../components/TablaClases";
+import TablaEspe from "../components/TablaEspe";
 import Table from "../components/Table";
+import Ts from "../components/Ts";
+
 import { sintaxis } from "../helpers/sintaxis";
 
 const Sintaxis = () => {
   const [contenido, setContenido] = useState(null);
   const [lexemas, setLexemas] = useState([]);
+  const [token, setToken] = useState([]);
+  const [ts, setTs] = useState([]);
   const handleChange = (e) => {
     let archivo = e.target.files[0];
     if (archivo) {
@@ -26,8 +32,10 @@ const Sintaxis = () => {
 
   const handleCalculate = () => {
     if (contenido) {
-      let lex = sintaxis(contenido);
+      let [tok, lex, ts] = sintaxis(contenido);
       setLexemas(lex);
+      setToken(tok);
+      setTs(ts);
     }
   };
   return (
@@ -61,7 +69,14 @@ const Sintaxis = () => {
           </div>
         </div>
 
-        {lexemas.length > 0 && <Table data={lexemas} />}
+        {lexemas.length > 0 && (
+          <>
+            <Table data={token} />
+            <TablaEspe data={lexemas} />
+            <TablaClases data={token} />
+            <Ts data={ts} />
+          </>
+        )}
       </div>
     </div>
   );

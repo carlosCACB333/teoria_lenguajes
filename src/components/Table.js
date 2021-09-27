@@ -7,22 +7,23 @@ const Table = ({ data }) => {
         className="shadow rounded-5 bg-gradient-gray p-5 table-responsive scroll"
         style={{ maxHeight: "85vh" }}
       >
-        <table className="table">
+        <h6>Token , lexema y patron</h6>
+        <table className="table table-sm">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">lexema</th>
               <th scope="col">Token</th>
-              <th scope="col">Código</th>
+              <th scope="col">Lexema</th>
+              <th scope="col">Patrón</th>
             </tr>
           </thead>
           <tbody>
             {data.map((valor, index) => (
               <tr key={index}>
                 <th scope="row">{index + 1}</th>
-                <td>{valor.lexema}</td>
                 <td>{valor.token}</td>
-                <td>{valor.codigo}</td>
+                <td>{valor.lexema}</td>
+                <td>{valor.patron}</td>
               </tr>
             ))}
           </tbody>
